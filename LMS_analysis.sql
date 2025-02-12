@@ -126,8 +126,7 @@ DECLARE
     v_book_name VARCHAR(80);
     
 BEGIN
-    -- all your logic and code
-    -- inserting into returns based on users input
+   
     INSERT INTO return_status(return_id, issued_id, return_date, book_quality)
     VALUES
     (p_return_id, p_issued_id, CURRENT_DATE, p_book_quality);
@@ -150,7 +149,7 @@ BEGIN
 END;
 $$
 
--- Testing FUNCTION add_return_records
+
 
 issued_id = IS135
 ISBN = WHERE isbn = '978-0-307-58837-1'
@@ -164,10 +163,10 @@ WHERE issued_book_isbn = '978-0-307-58837-1';
 SELECT * FROM return_status
 WHERE issued_id = 'IS135';
 
--- calling function 
+
 CALL add_return_records('RS138', 'IS135', 'Good');
 
--- calling function 
+
 CALL add_return_records('RS148', 'IS140', 'Good');
 
 /*
@@ -294,6 +293,6 @@ END;
 
 $$
 
-CALL issue_book('IS155', 'C108', '978-0-553-29698-2', 'E104')
-CALL issue_book('IS156', 'C108', '978-0-375-41398-8', 'E104')
+CALL issue_book('IS155', 'C108', '978-0-553-29698-2', 'E104');
+CALL issue_book('IS156', 'C108', '978-0-375-41398-8', 'E104');
 
